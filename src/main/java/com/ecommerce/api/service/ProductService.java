@@ -15,6 +15,14 @@ public class ProductService {
     return productRepository.findAll();
   }
 
+  public List<Product> findByQuantityAsc() {
+    return productRepository.findByQuantityAsc();
+  }
+
+  public List<Product> findByQuantityDesc() {
+    return productRepository.findByQuantityDesc();
+  }
+
   public Product getProductById(Long id) {
     return productRepository.findById(id);
   }

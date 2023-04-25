@@ -26,6 +26,14 @@ public class ProductRepository {
     return entityManager.createQuery("SELECT p FROM Product p", Product.class).getResultList();
   }
 
+  public List<Product> findByQuantityAsc(){
+    return entityManager.createQuery("SELECT p FROM Product p ORDER BY quantity ASC", Product.class).getResultList();
+  }
+
+  public List<Product> findByQuantityDesc(){
+    return entityManager.createQuery("SELECT p FROM Product p ORDER BY quantity DESC", Product.class).getResultList();
+  }
+
   public void update(Product product) {
     entityManager.merge(product);
   }

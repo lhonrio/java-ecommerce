@@ -2,6 +2,7 @@ package com.ecommerce.api.controller;
 
 import com.ecommerce.api.model.Product;
 import com.ecommerce.api.service.ProductService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +22,19 @@ public class ProductController {
   @Autowired private ProductService productService;
 
   @GetMapping("/{id}")
-  public ResponseEntity<Product> getProduct(@PathVariable Long id) {
+  public ResponseEntity<Product> getProductById(@PathVariable Long id) {
     Product product = productService.getProductById(id);
     return new ResponseEntity<>(product, HttpStatus.OK);
+  }
+
+  @GetMapping("/quantity/asc")
+  public List<Product> getProductsByQuantityAsc() {
+    return productService.findByQuantityAsc();
+  }
+
+  @GetMapping("/quantity/desc")
+  public List<Product> getProductsByQuantityDesc() {
+    return productService.findByQuantityDesc();
   }
 
   @PostMapping
