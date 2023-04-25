@@ -17,8 +17,8 @@ import org.springframework.http.ResponseEntity;
 
 public class ProductControllerTest {
 
-  @InjectMocks ProductController productController;
-  @Mock ProductService productService;
+  @InjectMocks private ProductController productController;
+  @Mock private ProductService productService;
   private Product product;
 
   @BeforeEach
