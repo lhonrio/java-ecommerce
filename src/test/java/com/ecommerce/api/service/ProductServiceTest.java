@@ -56,7 +56,7 @@ public class ProductServiceTest {
   }
 
   @Test
-  public void testGetAllProducts() {
+  public void getAllProductsTest() {
     List<Product> products = new ArrayList<>();
     products.add(product1);
     products.add(product2);
@@ -71,7 +71,7 @@ public class ProductServiceTest {
   }
 
   @Test
-  public void testGetProductById() {
+  public void getProductByIdTest() {
     Long id = 1L;
     when(productRepository.findById(id)).thenReturn(product1);
     Product result = productService.getProductById(id);
@@ -81,7 +81,7 @@ public class ProductServiceTest {
   }
 
   @Test
-  public void testCreateProduct() {
+  public void createProductTest() {
     Product product = new Product();
     product.setId(1L);
     product.setName("Product2");
@@ -102,7 +102,7 @@ public class ProductServiceTest {
   }
 
   @Test
-  public void testDeleteProduct() {
+  public void deleteProductTest() {
     Long id = 1L;
     productService.deleteProduct(id);
 
